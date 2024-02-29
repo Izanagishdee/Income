@@ -1,0 +1,14 @@
+[
+  {
+    "username": "asd",
+    "email": "sdadadsas",
+    "password": "$2b$10$M/dXE6ZvFTDD9ieKRGIbVODnCdp03iXSUUVVtifs1emafe6I79YvO",
+    "repassword": "2222"
+  },
+  {
+    "username": "wqdasda",
+    "email": "Akke",
+    "password": "$2b$10$J4ZD6ke/tIDBNSqYAGrI0OhGAcgMwXPGjC.ePd5jl5VFnnMGW7kG6",
+    "repassword": "$2b$10$1jHwEc02eAIsgQtLxKxlY.vOP4RagVNySLAchCXiISRJXImzJx6V2"
+  }
+]
