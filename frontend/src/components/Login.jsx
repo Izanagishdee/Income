@@ -2,11 +2,11 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { response } from "express";
 
 export const Login = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
-
   const [loginData, setLoginData] = useState("");
   const [error, setError] = useState("");
   const { push } = useRouter();
@@ -16,6 +16,11 @@ export const Login = () => {
         email: mail,
         password: password,
       });
+
+      localStorage.setItem("token", result.data.accesToken);
+      // localStorage.setItem("token", result.data.Postrequest);
+      // localStorage.setItem("token", result.data.accesToken);
+      // localStorage.setItem("token", result.data.accesToken);
 
       push("/Dashboard");
     } catch (err) {

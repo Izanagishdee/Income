@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const Signup = () => {
   const [mail, setMail] = useState("");
@@ -15,26 +16,32 @@ export const Signup = () => {
 
   const [error, setError] = useState("");
   const { push } = useRouter();
+  console.log(mail);
+  console.log({
+    username: name,
+    email: mail,
+    password: password,
+    repassword: repassword,
+  });
 
   const handleClick = async () => {
     try {
-      const result = await axios.post("http://localhost:8000/Users/sign", {
+      const { data } = await axios.post("http://localhost:8000/Users/sign", {
         username: name,
         email: mail,
         password: password,
-        repassword: repassword,
       });
       push("/Currency");
-      const submit = (event) => {
-        const { name, value } = event.target;
-        setUserData({ ...userData, [name]: value });
-        if (name === "password" || name === "rePassword") {
-          setConfirmPass({ ...confirmPass, [name]: value });
-        }
-      };
+      console.log(data);
+      // const submit = (event) => {
+      //   const { name, value } = event.target;
+      //   setUserData({ ...userData, [name]: value });
+      //   if (name === "password" || name === "rePassword") {
+      //     setConfirmPass({ ...confirmPass, [name]: value });
+      //   }
+      // };
     } catch (err) {
       console.log(err.message);
-      setError(err.response.data);
     }
   };
 
@@ -107,11 +114,11 @@ export const Signup = () => {
             <p className="w-[143px] h-[24px]  flex items-center justify-center">
               Already have account?
             </p>
-            <a href="/">
+            <Link href="/">
               <button className="w-[77px] h-[32px] flex justify-center items-center text-[#0166FF]">
                 Login up
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
